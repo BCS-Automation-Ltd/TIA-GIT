@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V19" />
+  <SW.Blocks.FB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input">
+    <Member Name="SamplePulse" Datatype="Bool" Remanence="Retain">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Pulse from PLC that triggers averaging logic every 500ms</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="CurrentSample" Datatype="Int">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Input to be used for averaging</MultiLanguageText>
+      </Comment>
+    </Member>
+  </Section>
+  <Section Name="Output">
+    <Member Name="RunningAverage" Datatype="Int">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Running Average</MultiLanguageText>
+      </Comment>
+    </Member>
+  </Section>
+  <Section Name="InOut" />
+  <Section Name="Static">
+    <Member Name="NumberOfSamples" Datatype="Int" Remanence="Retain">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Number of points in the Array (Static)</MultiLanguageText>
+      </Comment>
+      <StartValue>29</StartValue>
+    </Member>
+    <Member Name="SampleIndex" Datatype="Int" Remanence="Retain">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Number of points in the Arrayused for Summation (Static)</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="SampleArray" Datatype="Array[0..29] of DInt">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Array of numbers used in calcualtions</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="SumOfArray" Datatype="DInt">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Sum of all values in array to be used for averaging</MultiLanguageText>
+      </Comment>
+    </Member>
+  </Section>
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+</Sections></Interface>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>Averaging</Name>
+      <Namespace />
+      <Number>9</Number>
+      <ProgrammingLanguage>SCL</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StructuredText xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StructuredText/v4">
+  <LineComment UId="21">
+    <Text UId="22">This logic if for averaging out the level of tanks so that alarms are falsely triggered.</Text>
+  </LineComment>
+  <NewLine Num="2" UId="23" />
+  <LineComment UId="24">
+    <Text UId="25">These are static variables</Text>
+  </LineComment>
+  <NewLine UId="26" />
+  <Access Scope="LocalVariable" UId="27">
+    <Symbol UId="28">
+      <Component Name="NumberOfSamples" UId="29" />
+    </Symbol>
+  </Access>
+  <Blank UId="30" />
+  <Token Text=":=" UId="31" />
+  <Blank UId="32" />
+  <Access Scope="LiteralConstant" UId="33">
+    <Constant UId="34">
+      <ConstantValue UId="36">29</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="37" />
+  <NewLine UId="38" />
+  <Access Scope="LocalVariable" UId="39">
+    <Symbol UId="40">
+      <Component Name="SampleIndex" UId="41" />
+    </Symbol>
+  </Access>
+  <Blank UId="42" />
+  <Token Text=":=" UId="43" />
+  <Blank UId="44" />
+  <Access Scope="LiteralConstant" UId="45">
+    <Constant UId="46">
+      <ConstantValue UId="48">29</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="49" />
+  <NewLine UId="50" />
+  <Access Scope="LocalVariable" UId="51">
+    <Symbol UId="52">
+      <Component Name="SumOfArray" UId="53" />
+    </Symbol>
+  </Access>
+  <Blank UId="54" />
+  <Token Text=":=" UId="55" />
+  <Blank UId="56" />
+  <Access Scope="LiteralConstant" UId="57">
+    <Constant UId="58">
+      <ConstantValue UId="60">0</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="61" />
+  <NewLine Num="2" UId="62" />
+  <LineComment UId="63">
+    <Text UId="64">Every sampling period of 500ms...</Text>
+  </LineComment>
+  <NewLine UId="65" />
+  <Token Text="IF" UId="66" />
+  <Blank UId="67" />
+  <Access Scope="LocalVariable" UId="68">
+    <Symbol UId="69">
+      <Component Name="SamplePulse" UId="70" />
+    </Symbol>
+  </Access>
+  <Blank UId="71" />
+  <Token Text="=" UId="72" />
+  <Blank UId="73" />
+  <Access Scope="LiteralConstant" UId="74">
+    <Constant UId="75">
+      <ConstantValue UId="77">1</ConstantValue>
+    </Constant>
+  </Access>
+  <Blank UId="78" />
+  <Token Text="THEN" UId="79" />
+  <NewLine UId="80" />
+  <Blank Num="4" UId="81" />
+  <NewLine UId="82" />
+  <Blank Num="4" UId="83" />
+  <LineComment UId="84">
+    <Text UId="85">For each sample, mode the last register in the array out and shift existing values down a register</Text>
+  </LineComment>
+  <NewLine UId="86" />
+  <Blank Num="4" UId="87" />
+  <Token Text="FOR" UId="88" />
+  <Blank UId="89" />
+  <Access Scope="LocalVariable" UId="90">
+    <Symbol UId="91">
+      <Component Name="NumberOfSamples" UId="92" />
+    </Symbol>
+  </Access>
+  <Blank UId="93" />
+  <Token Text=":=" UId="94" />
+  <Blank UId="95" />
+  <Access Scope="LiteralConstant" UId="96">
+    <Constant UId="97">
+      <ConstantValue UId="99">29</ConstantValue>
+    </Constant>
+  </Access>
+  <Blank UId="100" />
+  <Token Text="TO" UId="101" />
+  <Blank UId="102" />
+  <Access Scope="LiteralConstant" UId="103">
+    <Constant UId="104">
+      <ConstantValue UId="106">1</ConstantValue>
+    </Constant>
+  </Access>
+  <Blank UId="107" />
+  <Token Text="BY" UId="108" />
+  <Blank UId="109" />
+  <Access Scope="LiteralConstant" UId="110">
+    <Constant UId="111">
+      <ConstantValue UId="113">-1</ConstantValue>
+    </Constant>
+  </Access>
+  <Blank UId="114" />
+  <Token Text="DO" UId="115" />
+  <NewLine UId="116" />
+  <Blank Num="7" UId="117" />
+  <Access Scope="LocalVariable" UId="118">
+    <Symbol UId="119">
+      <Component Name="SampleArray" UId="120">
+        <Token Text="[" UId="121" />
+        <Access Scope="LocalVariable" UId="122">
+          <Symbol UId="123">
+            <Component Name="NumberOfSamples" UId="124" />
+          </Symbol>
+        </Access>
+        <Token Text="]" UId="125" />
+      </Component>
+    </Symbol>
+  </Access>
+  <Blank UId="126" />
+  <Token Text=":=" UId="127" />
+  <Blank UId="128" />
+  <Access Scope="LocalVariable" UId="129">
+    <Symbol UId="130">
+      <Component Name="SampleArray" UId="131">
+        <Token Text="[" UId="132" />
+        <Access Scope="LocalVariable" UId="133">
+          <Symbol UId="134">
+            <Component Name="NumberOfSamples" UId="135" />
+          </Symbol>
+        </Access>
+        <Blank UId="136" />
+        <Token Text="-" UId="137" />
+        <Blank UId="138" />
+        <Access Scope="LiteralConstant" UId="139">
+          <Constant UId="140">
+            <ConstantValue UId="142">1</ConstantValue>
+          </Constant>
+        </Access>
+        <Token Text="]" UId="143" />
+      </Component>
+    </Symbol>
+  </Access>
+  <Token Text=";" UId="144" />
+  <NewLine UId="145" />
+  <Blank Num="4" UId="146" />
+  <Token Text="END_FOR" UId="147" />
+  <Token Text=";" UId="148" />
+  <NewLine UId="149" />
+  <Blank Num="4" UId="150" />
+  <NewLine UId="151" />
+  <Blank Num="4" UId="152" />
+  <LineComment UId="153">
+    <Text UId="154">Move the latest value to the first register of the array</Text>
+  </LineComment>
+  <NewLine UId="155" />
+  <Blank Num="4" UId="156" />
+  <Access Scope="LocalVariable" UId="157">
+    <Symbol UId="158">
+      <Component Name="SampleArray" UId="159">
+        <Token Text="[" UId="160" />
+        <Access Scope="LiteralConstant" UId="161">
+          <Constant UId="162">
+            <ConstantValue UId="164">0</ConstantValue>
+          </Constant>
+        </Access>
+        <Token Text="]" UId="165" />
+      </Component>
+    </Symbol>
+  </Access>
+  <Blank UId="166" />
+  <Token Text=":=" UId="167" />
+  <Blank UId="168" />
+  <Access Scope="LocalVariable" UId="169">
+    <Symbol UId="170">
+      <Component Name="CurrentSample" UId="171" />
+    </Symbol>
+  </Access>
+  <Token Text=";" UId="172" />
+  <NewLine UId="173" />
+  <Blank Num="4" UId="174" />
+  <NewLine UId="175" />
+  <Blank Num="4" UId="176" />
+  <LineComment UId="177">
+    <Text UId="178">Sum all values in the array</Text>
+  </LineComment>
+  <NewLine UId="179" />
+  <Blank Num="4" UId="180" />
+  <Token Text="FOR" UId="181" />
+  <Blank UId="182" />
+  <Access Scope="LocalVariable" UId="183">
+    <Symbol UId="184">
+      <Component Name="SampleIndex" UId="185" />
+    </Symbol>
+  </Access>
+  <Blank UId="186" />
+  <Token Text=":=" UId="187" />
+  <Blank UId="188" />
+  <Access Scope="LiteralConstant" UId="189">
+    <Constant UId="190">
+      <ConstantValue UId="192">0</ConstantValue>
+    </Constant>
+  </Access>
+  <Blank UId="193" />
+  <Token Text="TO" UId="194" />
+  <Blank UId="195" />
+  <Access Scope="LiteralConstant" UId="196">
+    <Constant UId="197">
+      <ConstantValue UId="199">29</ConstantValue>
+    </Constant>
+  </Access>
+  <Blank UId="200" />
+  <Token Text="DO" UId="201" />
+  <NewLine UId="202" />
+  <Blank Num="8" UId="203" />
+  <Access Scope="LocalVariable" UId="204">
+    <Symbol UId="205">
+      <Component Name="SumOfArray" UId="206" />
+    </Symbol>
+  </Access>
+  <Blank UId="207" />
+  <Token Text="+=" UId="208" />
+  <Blank UId="209" />
+  <Access Scope="LocalVariable" UId="210">
+    <Symbol UId="211">
+      <Component Name="SampleArray" UId="212">
+        <Token Text="[" UId="213" />
+        <Access Scope="LocalVariable" UId="214">
+          <Symbol UId="215">
+            <Component Name="SampleIndex" UId="216" />
+          </Symbol>
+        </Access>
+        <Token Text="]" UId="217" />
+      </Component>
+    </Symbol>
+  </Access>
+  <Token Text=";" UId="218" />
+  <NewLine UId="219" />
+  <Blank Num="4" UId="220" />
+  <Token Text="END_FOR" UId="221" />
+  <Token Text=";" UId="222" />
+  <NewLine UId="223" />
+  <Blank Num="4" UId="224" />
+  <NewLine UId="225" />
+  <Blank Num="4" UId="226" />
+  <LineComment UId="227">
+    <Text UId="228">Calculate the running average by dividing the sum of the array by the number of registers in the array.</Text>
+  </LineComment>
+  <NewLine UId="229" />
+  <Blank Num="4" UId="230" />
+  <Access Scope="LocalVariable" UId="231">
+    <Symbol UId="232">
+      <Component Name="RunningAverage" UId="233" />
+    </Symbol>
+  </Access>
+  <Blank UId="234" />
+  <Token Text=":=" UId="235" />
+  <Blank UId="236" />
+  <Access Scope="LocalVariable" UId="237">
+    <Symbol UId="238">
+      <Component Name="SumOfArray" UId="239" />
+    </Symbol>
+  </Access>
+  <Blank UId="240" />
+  <Token Text="/" UId="241" />
+  <Blank UId="242" />
+  <Access Scope="LiteralConstant" UId="243">
+    <Constant UId="244">
+      <ConstantValue UId="246">30</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="247" />
+  <NewLine UId="248" />
+  <Blank Num="4" UId="249" />
+  <NewLine UId="250" />
+  <Token Text="END_IF" UId="251" />
+  <Token Text=";" UId="252" />
+  <NewLine UId="253" />
+</StructuredText></NetworkSource>
+          <ProgrammingLanguage>SCL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="8" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="9" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FB>
+</Document>

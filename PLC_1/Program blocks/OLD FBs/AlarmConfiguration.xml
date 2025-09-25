@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V19" />
+  <SW.Blocks.GlobalDB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Static">
+    <Member Name="DigitalDisable" Datatype="Bool">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Digital Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="DigitalDockModeEnable" Datatype="Bool">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Digital Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="DigitalContactType" Datatype="Bool">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Digital Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="DigitalDelayTime" Datatype="DInt">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Digital Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="HHAlarmDisable" Datatype="Bool">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="HHDockModeEnable" Datatype="Bool">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="HHDeadband" Datatype="Real">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="HHDelayTime" Datatype="DInt">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="HHLimit" Datatype="Real">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="HAlarmDisable" Datatype="Bool">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="HDockModeEnable" Datatype="Bool">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="HDeadband" Datatype="Real">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="HDelayTime" Datatype="DInt">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="HLimit" Datatype="Real">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="LAlarmDisable" Datatype="Bool">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="LDockModeEnable" Datatype="Bool">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="LDeadband" Datatype="Real">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="LDelayTime" Datatype="DInt">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="LLimit" Datatype="Real">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="LLAlarmDisable" Datatype="Bool">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="LLDockModeEnable" Datatype="Bool">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="LLDeadband" Datatype="Real">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="LLDelayTime" Datatype="DInt">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="LLLimit" Datatype="Real">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="RawValueMAX" Datatype="Real">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="RawValueMIN" Datatype="Real">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="ScaledValueMAX" Datatype="Real">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="ScaledValueMIN" Datatype="Real">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Analog Alarm Configuration tag, written to and read from HMI.</MultiLanguageText>
+      </Comment>
+    </Member>
+  </Section>
+</Sections></Interface>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>AlarmConfiguration</Name>
+      <Namespace />
+      <Number>555</Number>
+      <ProgrammingLanguage>DB</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="3" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="4" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.GlobalDB>
+</Document>

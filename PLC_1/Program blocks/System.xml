@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V19" />
+  <SW.Blocks.GlobalDB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Static">
+    <Member Name="GlobalWord" Datatype="&quot;GlobalWord&quot;" />
+    <Member Name="ElectricalAlarms" Datatype="Struct">
+      <Member Name="Active" Datatype="Array[0..511] of Bool" />
+      <Member Name="UnAck" Datatype="Array[0..511] of Bool" />
+      <Member Name="Severity" Datatype="Array[0..511] of Byte" />
+    </Member>
+    <Member Name="TankAlarms" Datatype="Struct">
+      <Member Name="Active" Datatype="Array[0..511] of Bool" />
+      <Member Name="UnAck" Datatype="Array[0..511] of Bool" />
+      <Member Name="Severity" Datatype="Array[0..511] of Byte" />
+    </Member>
+    <Member Name="Config" Datatype="Struct">
+      <Member Name="Alarm" Datatype="&quot;ConfigAlarm&quot;" />
+      <Member Name="Parameters" Datatype="&quot;ConfigParameters&quot;" />
+    </Member>
+    <Member Name="TankTables" Datatype="Struct">
+      <Member Name="TK1" Datatype="&quot;TankTable&quot;">
+        <Sections>
+          <Section Name="None">
+            <Member Name="Tank_Level" Datatype="Struct">
+              <Member Name="Level" Datatype="Array[0..49] of Real">
+                <Subelement Path="0">
+                  <StartValue>0.0</StartValue>
+                </Subelement>
+                <Subelement Path="1">
+                  <StartValue>0.0</StartValue>
+                </Subelement>
+                <Subelement Path="2">
+                  <StartValue>61.0</StartValue>
+                </Subelement>
+                <Subelement Path="3">
+                  <StartValue>147.0</StartValue>
+                </Subelement>
+                <Subelement Path="4">
+                  <StartValue>222.0</StartValue>
+                </Subelement>
+                <Subelement Path="5">
+                  <StartValue>290.0</StartValue>
+                </Subelement>
+                <Subelement Path="6">
+                  <StartValue>353.0</StartValue>
+                </Subelement>
+                <Subelement Path="7">
+                  <StartValue>412.0</StartValue>
+                </Subelement>
+                <Subelement Path="8">
+                  <StartValue>467.0</StartValue>
+                </Subelement>
+                <Subelement Path="9">
+                  <StartValue>519.0</StartValue>
+                </Subelement>
+                <Subelement Path="10">
+                  <StartValue>569.0</StartValue>
+                </Subelement>
+                <Subelement Path="11">
+                  <StartValue>616.0</StartValue>
+                </Subelement>
+                <Subelement Path="12">
+                  <StartValue>662.0</StartValue>
+                </Subelement>
+                <Subelement Path="13">
+                  <StartValue>705.0</StartValue>
+                </Subelement>
+                <Subelement Path="14">
+                  <StartValue>748.0</StartValue>
+                </Subelement>
+                <Subelement Path="15">
+                  <StartValue>789.0</StartValue>
+                </Subelement>
+                <Subelement Path="16">
+                  <StartValue>828.0</StartValue>
+                </Subelement>
+                <Subelement Path="17">
+                  <StartValue>867.0</StartValue>
+                </Subelement>
+                <Subelement Path="18">
+                  <StartValue>904.0</StartValue>
+                </Subelement>
+                <Subelement Path="19">
+                  <StartValue>941.0</StartValue>
+                </Subelement>
+                <Subelement Path="20">
+                  <StartValue>976.0</StartValue>
+                </Subelement>
+                <Subelement Path="21">
+                  <StartValue>1011.0</StartValue>
+                </Subelement>
+                <Subelement Path="22">
+                  <StartValue>1045.0</StartValue>
+                </Subelement>
+                <Subelement Path="23">
+                  <StartValue>1078.0</StartValue>
+                </Subelement>
+                <Subelement Path="24">
+                  <StartValue>1111.0</StartValue>
+                </Subelement>
+                <Subelement Path="25">
+                  <StartValue>1143.0</StartValue>
+                </Subelement>
+                <Subelement Path="26">
+                  <StartValue>1174.0</StartValue>
+                </Subelement>
+                <Subelement Path="27">
+                  <StartValue>1205.0</StartValue>
+                </Subelement>
+                <Subelement Path="28">
+                  <StartValue>1235.0</StartValue>
+                </Subelement>
+                <Subelement Path="29">
+                  <StartValue>1265.0</StartValue>
+                </Subelement>
+                <Subelement Path="30">
+                  <StartValue>1295.0</StartValue>
+                </Subelement>
+                <Subelement Path="31">
+                  <StartValue>1325.0</StartValue>
+                </Subelement>
+                <Subelement Path="32">
+                  <StartValue>1355.0</StartValue>
+                </Subelement>
+                <Subelement Path="33">
+                  <StartValue>1385.0</StartValue>
+                </Subelement>
+                <Subelement Path="34">
+                  <StartValue>1415.0</StartValue>
+                </Subelement>
+                <Subelement Path="35">
+                  <StartValue>1445.0</StartValue>
+                </Subelement>
+                <Subelement Path="36">
+                  <StartValue>1475.0</StartValue>
+                </Subelement>
+                <Subelement Path="37">
+                  <StartValue>1505.0</StartValue>
+                </Subelement>
+                <Subelement Path="38">
+                  <StartValue>1535.0</StartValue>
+                </Subelement>
+                <Subelement Path="39">
+                  <StartValue>1565.0</StartValue>
+                </Subelement>
+                <Subelement Path="40">
+                  <StartValue>1595.0</StartValue>
+                </Subelement>
+                <Subelement Path="41">
+                  <StartValue>1626.0</StartValue>
+                </Subelement>
+                <Subelement Path="42">
+                  <StartValue>1655.0</StartValue>
+                </Subelement>
+                <Subelement Path="43">
+                  <StartValue>1685.0</StartValue>
+                </Subelement>
+                <Subelement Path="44">
+                  <StartValue>1714.0</StartValue>
+                </Subelement>
+                <Subelement Path="45">
+                  <StartValue>1743.0</StartValue>
+                </Subelement>
+                <Subelement Path="46">
+                  <StartValue>1773.0</StartValue>
+                </Subelement>
+                <Subelement Path="47">
+                  <StartValue>1802.0</StartValue>
+                </Subelement>
+                <Subelement Path="48">
+                  <StartValue>1832.0</StartValue>
+                </Subelement>
+                <Subelement Path="49">
+                  <StartValue>1861.0</StartValue>
+                </Subelement>
+              </Member>
+              <Member Name="Liters" Datatype="Array[0..49] of Real">
+                <Subelement Path="0">
+                  <StartValue>177.0</StartValue>
+                </Subelement>
+                <Subelement Path="1">
+                  <StartValue>354.0</StartValue>
+                </Subelement>
+                <Subelement Path="2">
+                  <StartValue>530.0</StartValue>
+                </Subelement>
+                <Subelement Path="3">
+                  <StartValue>707.0</StartValue>
+                </Subelement>
+                <Subelement Path="4">
+                  <StartValue>884.0</StartValue>
+                </Subelement>
+                <Subelement Path="5">
+                  <StartValue>1061.0</StartValue>
+                </Subelement>
+                <Subelement Path="6">
+                  <StartValue>1237.0</StartValue>
+                </Subelement>
+                <Subelement Path="7">
+                  <StartValue>1414.0</StartValue>
+                </Subelement>
+                <Subelement Path="8">
+                  <StartValue>1591.0</StartValue>
+                </Subelement>
+                <Subelement Path="9">
+                  <StartValue>1768.0</StartValue>
+                </Subelement>
+                <Subelement Path="10">
+                  <StartValue>1945.0</StartValue>
+                </Subelement>
+                <Subelement Path="11">
+                  <StartValue>2121.0</StartValue>
+                </Subelement>
+                <Subelement Path="12">
+                  <StartValue>2298.0</StartValue>
+                </Subelement>
+                <Subelement Path="13">
+                  <StartValue>2475.0</StartValue>
+                </Subelement>
+                <Subelement Path="14">
+                  <StartValue>2652.0</StartValue>
+                </Subelement>
+                <Subelement Path="15">
+                  <StartValue>2828.0</StartValue>
+                </Subelement>
+                <Subelement Path="16">
+                  <StartValue>3005.0</StartValue>
+                </Subelement>
+                <Subelement Path="17">
+                  <StartValue>3182.0</StartValue>
+                </Subelement>
+                <Subelement Path="18">
+                  <StartValue>3359.0</StartValue>
+                </Subelement>
+                <Subelement Path="19">
+                  <StartValue>3536.0</StartValue>
+                </Subelement>
+                <Subelement Path="20">
+                  <StartValue>3712.0</StartValue>
+                </Subelement>
+                <Subelement Path="21">
+                  <StartValue>3889.0</StartValue>
+                </Subelement>
+                <Subelement Path="22">
+                  <StartValue>4066.0</StartValue>
+                </Subelement>
+                <Subelement Path="23">
+                  <StartValue>4243.0</StartValue>
+                </Subelement>
+                <Subelement Path="24">
+                  <StartValue>4419.0</StartValue>
+                </Subelement>
+                <Subelement Path="25">
+                  <StartValue>4596.0</StartValue>
+                </Subelement>
+                <Subelement Path="26">
+                  <StartValue>4773.0</StartValue>
+                </Subelement>
+                <Subelement Path="27">
+                  <StartValue>4950.0</StartValue>
+                </Subelement>
+                <Subelement Path="28">
+                  <StartValue>5127.0</StartValue>
+                </Subelement>
+                <Subelement Path="29">
+                  <StartValue>5303.0</StartValue>
+                </Subelement>
+                <Subelement Path="30">
+                  <StartValue>5480.0</StartValue>
+                </Subelement>
+                <Subelement Path="31">
+                  <StartValue>5657.0</StartValue>
+                </Subelement>
+                <Subelement Path="32">
+                  <StartValue>5834.0</StartValue>
+                </Subelement>
+                <Subelement Path="33">
+                  <StartValue>6010.0</StartValue>
+                </Subelement>
+                <Subelement Path="34">
+                  <StartValue>6187.0</StartValue>
+                </Subelement>
+                <Subelement Path="35">
+                  <StartValue>6364.0</StartValue>
+                </Subelement>
+                <Subelement Path="36">
+                  <StartValue>6541.0</StartValue>
+                </Subelement>
+                <Subelement Path="37">
+                  <StartValue>6718.0</StartValue>
+                </Subelement>
+                <Subelement Path="38">
+                  <StartValue>6894.0</StartValue>
+                </Subelement>
+                <Subelement Path="39">
+                  <StartValue>7071.0</StartValue>
+                </Subelement>
+                <Subelement Path="40">
+                  <StartValue>7248.0</StartValue>
+                </Subelement>
+                <Subelement Path="41">
+                  <StartValue>7425.0</StartValue>
+                </Subelement>
+                <Subelement Path="42">
+                  <StartValue>7601.0</StartValue>
+                </Subelement>
+                <Subelement Path="43">
+                  <StartValue>7778.0</StartValue>
+                </Subelement>
+                <Subelement Path="44">
+                  <StartValue>7955.0</StartValue>
+                </Subelement>
+                <Subelement Path="45">
+                  <StartValue>8132.0</StartValue>
+                </Subelement>
+                <Subelement Path="46">
+                  <StartValue>8309.0</StartValue>
+                </Subelement>
+                <Subelement Path="47">
+                  <StartValue>8485.0</StartValue>
+                </Subelement>
+                <Subelement Path="48">
+                  <StartValue>8662.0</StartValue>
+                </Subelement>
+                <Subelement Path="49">
+                  <StartValue>8839.0</StartValue>
+                </Subelement>
+              </Member>
+              <Member Name="Volume" Datatype="Array[0..49] of Real">
+                <Subelement Path="0">
+                  <StartValue>177.0</StartValue>
+                </Subelement>
+                <Subelement Path="1">
+                  <StartValue>354.0</StartValue>
+                </Subelement>
+                <Subelement Path="2">
+                  <StartValue>530.0</StartValue>
+                </Subelement>
+                <Subelement Path="3">
+                  <StartValue>707.0</StartValue>
+                </Subelement>
+                <Subelement Path="4">
+                  <StartValue>884.0</StartValue>
+                </Subelement>
+                <Subelement Path="5">
+                  <StartValue>1061.0</StartValue>
+                </Subelement>
+                <Subelement Path="6">
+                  <StartValue>1237.0</StartValue>
+                </Subelement>
+                <Subelement Path="7">
+                  <StartValue>1414.0</StartValue>
+                </Subelement>
+                <Subelement Path="8">
+                  <StartValue>1591.0</StartValue>
+                </Subelement>
+                <Subelement Path="9">
+                  <StartValue>1768.0</StartValue>
+                </Subelement>
+                <Subelement Path="10">
+                  <StartValue>1945.0</StartValue>
+                </Subelement>
+                <Subelement Path="11">
+                  <StartValue>2121.0</StartValue>
+                </Subelement>
+                <Subelement Path="12">
+                  <StartValue>2298.0</StartValue>
+                </Subelement>
+                <Subelement Path="13">
+                  <StartValue>2475.0</StartValue>
+                </Subelement>
+                <Subelement Path="14">
+                  <StartValue>2652.0</StartValue>
+                </Subelement>
+                <Subelement Path="15">
+                  <StartValue>2828.0</StartValue>
+                </Subelement>
+                <Subelement Path="16">
+                  <StartValue>3005.0</StartValue>
+                </Subelement>
+                <Subelement Path="17">
+                  <StartValue>3182.0</StartValue>
+                </Subelement>
+                <Subelement Path="18">
+                  <StartValue>3359.0</StartValue>
+                </Subelement>
+                <Subelement Path="19">
+                  <StartValue>3536.0</StartValue>
+                </Subelement>
+                <Subelement Path="20">
+                  <StartValue>3712.0</StartValue>
+                </Subelement>
+                <Subelement Path="21">
+                  <StartValue>3889.0</StartValue>
+                </Subelement>
+                <Subelement Path="22">
+                  <StartValue>4066.0</StartValue>
+                </Subelement>
+                <Subelement Path="23">
+                  <StartValue>4243.0</StartValue>
+                </Subelement>
+                <Subelement Path="24">
+                  <StartValue>4419.0</StartValue>
+                </Subelement>
+                <Subelement Path="25">
+                  <StartValue>4596.0</StartValue>
+                </Subelement>
+                <Subelement Path="26">
+                  <StartValue>4773.0</StartValue>
+                </Subelement>
+                <Subelement Path="27">
+                  <StartValue>4950.0</StartValue>
+                </Subelement>
+                <Subelement Path="28">
+                  <StartValue>5127.0</StartValue>
+                </Subelement>
+                <Subelement Path="29">
+                  <StartValue>5303.0</StartValue>
+                </Subelement>
+                <Subelement Path="30">
+                  <StartValue>5480.0</StartValue>
+                </Subelement>
+                <Subelement Path="31">
+                  <StartValue>5657.0</StartValue>
+                </Subelement>
+                <Subelement Path="32">
+                  <StartValue>5834.0</StartValue>
+                </Subelement>
+                <Subelement Path="33">
+                  <StartValue>6010.0</StartValue>
+                </Subelement>
+                <Subelement Path="34">
+                  <StartValue>6187.0</StartValue>
+                </Subelement>
+                <Subelement Path="35">
+                  <StartValue>6364.0</StartValue>
+                </Subelement>
+                <Subelement Path="36">
+                  <StartValue>6541.0</StartValue>
+                </Subelement>
+                <Subelement Path="37">
+                  <StartValue>6718.0</StartValue>
+                </Subelement>
+                <Subelement Path="38">
+                  <StartValue>6894.0</StartValue>
+                </Subelement>
+                <Subelement Path="39">
+                  <StartValue>7071.0</StartValue>
+                </Subelement>
+                <Subelement Path="40">
+                  <StartValue>7248.0</StartValue>
+                </Subelement>
+                <Subelement Path="41">
+                  <StartValue>7425.0</StartValue>
+                </Subelement>
+                <Subelement Path="42">
+                  <StartValue>7601.0</StartValue>
+                </Subelement>
+                <Subelement Path="43">
+                  <StartValue>7778.0</StartValue>
+                </Subelement>
+                <Subelement Path="44">
+                  <StartValue>7955.0</StartValue>
+                </Subelement>
+                <Subelement Path="45">
+                  <StartValue>8132.0</StartValue>
+                </Subelement>
+                <Subelement Path="46">
+                  <StartValue>8309.0</StartValue>
+                </Subelement>
+                <Subelement Path="47">
+                  <StartValue>8485.0</StartValue>
+                </Subelement>
+                <Subelement Path="48">
+                  <StartValue>8662.0</StartValue>
+                </Subelement>
+                <Subelement Path="49">
+                  <StartValue>8839.0</StartValue>
+                </Subelement>
+              </Member>
+            </Member>
+          </Section>
+        </Sections>
+      </Member>
+    </Member>
+  </Section>
+</Sections></Interface>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>System</Name>
+      <Namespace />
+      <Number>100</Number>
+      <ProgrammingLanguage>DB</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="3" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="4" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.GlobalDB>
+</Document>

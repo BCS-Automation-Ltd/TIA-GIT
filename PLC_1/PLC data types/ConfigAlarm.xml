@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V19" />
+  <SW.Types.PlcStruct ID="0">
+    <AttributeList>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="None">
+    <Member Name="Group" Datatype="Byte" />
+    <Member Name="Severity" Datatype="Byte" />
+    <Member Name="DelayTime" Datatype="Byte" />
+    <Member Name="BlockIdentifier" Datatype="Byte" />
+    <Member Name="Bools" Datatype="Struct">
+      <Member Name="AlarmDisable" Datatype="Bool" />
+      <Member Name="DockModeEnable" Datatype="Bool" />
+      <Member Name="ContactType" Datatype="Bool" />
+      <Member Name="UnoccupiedMode" Datatype="Bool" />
+      <Member Name="AlarmTest" Datatype="Bool" />
+      <Member Name="SimulationMode" Datatype="Bool" />
+      <Member Name="SimulationValueDigital" Datatype="Bool" />
+      <Member Name="AlarmActive" Datatype="Bool" />
+    </Member>
+  </Section>
+</Sections></Interface>
+      <Name>ConfigAlarm</Name>
+      <Namespace />
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="3" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="4" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Types.PlcStruct>
+</Document>

@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V19" />
+  <SW.Blocks.FB ID="0">
+    <AttributeList>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input">
+    <Member Name="GroupArray" Datatype="Struct">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Member Name="ActiveArray" Datatype="Array[0..511] of Bool">
+        <Comment>
+          <MultiLanguageText Lang="en-US">Input of the BitArray into the Function</MultiLanguageText>
+        </Comment>
+      </Member>
+      <Member Name="UnAckArray" Datatype="Array[0..511] of Bool" />
+      <Member Name="SeverityArray" Datatype="Array[0..511] of Byte" />
+    </Member>
+  </Section>
+  <Section Name="Output">
+    <Member Name="CountOutput" Datatype="Int" Remanence="Retain">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Output the Number of Alarms that are Active</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="HighestSeverity" Datatype="Byte">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Output the Highest Severity Alarm that is Active</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="UnAckAlarm" Datatype="Bool">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Output the Number of Alarms that are Unacknowledged</MultiLanguageText>
+      </Comment>
+    </Member>
+  </Section>
+  <Section Name="InOut" />
+  <Section Name="Static">
+    <Member Name="i" Datatype="Int" Remanence="Retain">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Index variable, used to count through the entire array</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="AlarmCount" Datatype="Int" Remanence="Retain">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Temporary variable used to count the number of alarms</MultiLanguageText>
+      </Comment>
+    </Member>
+  </Section>
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+</Sections></Interface>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>Alarm Counting</Name>
+      <Namespace />
+      <Number>10</Number>
+      <ProgrammingLanguage>SCL</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StructuredText xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StructuredText/v4">
+  <LineComment UId="21">
+    <Text UId="22"> This Logic is for counting the number of Alarms for a specific section</Text>
+  </LineComment>
+  <NewLine Num="2" UId="23" />
+  <LineComment UId="24">
+    <Text UId="25">These are static variables</Text>
+  </LineComment>
+  <NewLine UId="26" />
+  <Access Scope="LocalVariable" UId="27">
+    <Symbol UId="28">
+      <Component Name="i" UId="29" />
+    </Symbol>
+  </Access>
+  <Blank UId="30" />
+  <Token Text=":=" UId="31" />
+  <Blank UId="32" />
+  <Access Scope="LiteralConstant" UId="33">
+    <Constant UId="34">
+      <ConstantValue UId="36">0</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="37" />
+  <NewLine UId="38" />
+  <Access Scope="LocalVariable" UId="39">
+    <Symbol UId="40">
+      <Component Name="AlarmCount" UId="41" />
+    </Symbol>
+  </Access>
+  <Blank UId="42" />
+  <Token Text=":=" UId="43" />
+  <Blank UId="44" />
+  <Access Scope="LiteralConstant" UId="45">
+    <Constant UId="46">
+      <ConstantValue UId="48">0</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="49" />
+  <NewLine UId="50" />
+  <Access Scope="LocalVariable" UId="51">
+    <Symbol UId="52">
+      <Component Name="UnAckAlarm" UId="53" />
+    </Symbol>
+  </Access>
+  <Blank UId="54" />
+  <Token Text=":=" UId="55" />
+  <Blank UId="56" />
+  <Access Scope="LiteralConstant" UId="57">
+    <Constant UId="58">
+      <ConstantValue UId="60">0</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="61" />
+  <NewLine UId="62" />
+  <Access Scope="LocalVariable" UId="63">
+    <Symbol UId="64">
+      <Component Name="HighestSeverity" UId="65" />
+    </Symbol>
+  </Access>
+  <Blank UId="66" />
+  <Token Text=":=" UId="67" />
+  <Blank UId="68" />
+  <Access Scope="LiteralConstant" UId="69">
+    <Constant UId="70">
+      <ConstantValue UId="72">0</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="73" />
+  <NewLine Num="2" UId="74" />
+  <LineComment UId="75">
+    <Text UId="76">For the array of 0 to 511...</Text>
+  </LineComment>
+  <NewLine UId="77" />
+  <Token Text="FOR" UId="78" />
+  <Blank UId="79" />
+  <Access Scope="LocalVariable" UId="80">
+    <Symbol UId="81">
+      <Component Name="i" UId="82" />
+    </Symbol>
+  </Access>
+  <Blank UId="83" />
+  <Token Text=":=" UId="84" />
+  <Blank UId="85" />
+  <Access Scope="LiteralConstant" UId="86">
+    <Constant UId="87">
+      <ConstantValue UId="89">0</ConstantValue>
+    </Constant>
+  </Access>
+  <Blank UId="90" />
+  <Token Text="TO" UId="91" />
+  <Blank UId="92" />
+  <Access Scope="LiteralConstant" UId="93">
+    <Constant UId="94">
+      <ConstantValue UId="96">511</ConstantValue>
+    </Constant>
+  </Access>
+  <Blank UId="97" />
+  <Token Text="DO" UId="98" />
+  <NewLine UId="99" />
+  <Blank Num="4" UId="100" />
+  <LineComment UId="101">
+    <Text UId="102"> If the Bit is true then...</Text>
+  </LineComment>
+  <NewLine UId="103" />
+  <Blank Num="4" UId="104" />
+  <Token Text="IF" UId="105" />
+  <Blank UId="106" />
+  <Access Scope="LocalVariable" UId="107">
+    <Symbol UId="108">
+      <Component Name="GroupArray" UId="109" />
+      <Token Text="." UId="110" />
+      <Component Name="ActiveArray" UId="111">
+        <Token Text="[" UId="112" />
+        <Access Scope="LocalVariable" UId="113">
+          <Symbol UId="114">
+            <Component Name="i" UId="115" />
+          </Symbol>
+        </Access>
+        <Token Text="]" UId="116" />
+      </Component>
+    </Symbol>
+  </Access>
+  <Blank UId="117" />
+  <Token Text="=" UId="118" />
+  <Blank Num="2" UId="119" />
+  <Access Scope="LiteralConstant" UId="120">
+    <Constant UId="121">
+      <ConstantValue UId="123">1</ConstantValue>
+    </Constant>
+  </Access>
+  <Blank UId="124" />
+  <Token Text="THEN" UId="125" />
+  <NewLine UId="126" />
+  <Blank Num="8" UId="127" />
+  <LineComment UId="128">
+    <Text UId="129"> Increment the AlarmCount by 1</Text>
+  </LineComment>
+  <NewLine UId="130" />
+  <Blank Num="8" UId="131" />
+  <Access Scope="LocalVariable" UId="132">
+    <Symbol UId="133">
+      <Component Name="AlarmCount" UId="134" />
+    </Symbol>
+  </Access>
+  <Blank UId="135" />
+  <Token Text=":=" UId="136" />
+  <Blank UId="137" />
+  <Access Scope="LocalVariable" UId="138">
+    <Symbol UId="139">
+      <Component Name="AlarmCount" UId="140" />
+    </Symbol>
+  </Access>
+  <Blank UId="141" />
+  <Token Text="+" UId="142" />
+  <Blank UId="143" />
+  <Access Scope="LiteralConstant" UId="144">
+    <Constant UId="145">
+      <ConstantValue UId="147">1</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="148" />
+  <NewLine UId="149" />
+  <Blank Num="8" UId="150" />
+  <Token Text="IF" UId="151" />
+  <Blank UId="152" />
+  <Access Scope="LocalVariable" UId="153">
+    <Symbol UId="154">
+      <Component Name="GroupArray" UId="155" />
+      <Token Text="." UId="156" />
+      <Component Name="SeverityArray" UId="157">
+        <Token Text="[" UId="158" />
+        <Access Scope="LocalVariable" UId="159">
+          <Symbol UId="160">
+            <Component Name="i" UId="161" />
+          </Symbol>
+        </Access>
+        <Token Text="]" UId="162" />
+      </Component>
+    </Symbol>
+  </Access>
+  <Blank UId="163" />
+  <Token Text="&gt;" UId="164" />
+  <Blank UId="165" />
+  <Access Scope="LocalVariable" UId="166">
+    <Symbol UId="167">
+      <Component Name="HighestSeverity" UId="168" />
+    </Symbol>
+  </Access>
+  <Blank UId="169" />
+  <Token Text="THEN" UId="170" />
+  <NewLine UId="171" />
+  <Blank Num="12" UId="172" />
+  <Access Scope="LocalVariable" UId="173">
+    <Symbol UId="174">
+      <Component Name="HighestSeverity" UId="175" />
+    </Symbol>
+  </Access>
+  <Blank UId="176" />
+  <Token Text=":=" UId="177" />
+  <Blank UId="178" />
+  <Access Scope="LocalVariable" UId="179">
+    <Symbol UId="180">
+      <Component Name="GroupArray" UId="181" />
+      <Token Text="." UId="182" />
+      <Component Name="SeverityArray" UId="183">
+        <Token Text="[" UId="184" />
+        <Access Scope="LocalVariable" UId="185">
+          <Symbol UId="186">
+            <Component Name="i" UId="187" />
+          </Symbol>
+        </Access>
+        <Token Text="]" UId="188" />
+      </Component>
+    </Symbol>
+  </Access>
+  <Token Text=";" UId="189" />
+  <NewLine UId="190" />
+  <Blank Num="8" UId="191" />
+  <Token Text="END_IF" UId="192" />
+  <Token Text=";" UId="193" />
+  <NewLine UId="194" />
+  <Blank Num="4" UId="195" />
+  <Token Text="END_IF" UId="196" />
+  <Token Text=";" UId="197" />
+  <NewLine UId="198" />
+  <Blank Num="4" UId="199" />
+  <Token Text="IF" UId="200" />
+  <Blank UId="201" />
+  <Access Scope="LocalVariable" UId="202">
+    <Symbol UId="203">
+      <Component Name="GroupArray" UId="204" />
+      <Token Text="." UId="205" />
+      <Component Name="UnAckArray" UId="206">
+        <Token Text="[" UId="207" />
+        <Access Scope="LocalVariable" UId="208">
+          <Symbol UId="209">
+            <Component Name="i" UId="210" />
+          </Symbol>
+        </Access>
+        <Token Text="]" UId="211" />
+      </Component>
+    </Symbol>
+  </Access>
+  <Blank UId="212" />
+  <Token Text="=" UId="213" />
+  <Blank UId="214" />
+  <Access Scope="LiteralConstant" UId="215">
+    <Constant UId="216">
+      <ConstantValue UId="218">1</ConstantValue>
+    </Constant>
+  </Access>
+  <Blank UId="219" />
+  <Token Text="THEN" UId="220" />
+  <NewLine UId="221" />
+  <Blank Num="8" UId="222" />
+  <Access Scope="LocalVariable" UId="223">
+    <Symbol UId="224">
+      <Component Name="UnAckAlarm" UId="225" />
+    </Symbol>
+  </Access>
+  <Blank UId="226" />
+  <Token Text=":=" UId="227" />
+  <Blank UId="228" />
+  <Access Scope="LiteralConstant" UId="229">
+    <Constant UId="230">
+      <ConstantValue UId="232">1</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="233" />
+  <NewLine UId="234" />
+  <Blank Num="4" UId="235" />
+  <Token Text="END_IF" UId="236" />
+  <Token Text=";" UId="237" />
+  <NewLine UId="238" />
+  <Token Text="END_FOR" UId="239" />
+  <Token Text=";" UId="240" />
+  <NewLine Num="2" UId="241" />
+  <LineComment UId="242">
+    <Text UId="243">Moving the AlarmCount to the Output</Text>
+  </LineComment>
+  <NewLine UId="244" />
+  <Access Scope="LocalVariable" UId="245">
+    <Symbol UId="246">
+      <Component Name="CountOutput" UId="247" />
+    </Symbol>
+  </Access>
+  <Blank UId="248" />
+  <Token Text=":=" UId="249" />
+  <Blank UId="250" />
+  <Access Scope="LocalVariable" UId="251">
+    <Symbol UId="252">
+      <Component Name="AlarmCount" UId="253" />
+    </Symbol>
+  </Access>
+  <Token Text=";" UId="254" />
+</StructuredText></NetworkSource>
+          <ProgrammingLanguage>SCL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="8" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="9" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FB>
+</Document>

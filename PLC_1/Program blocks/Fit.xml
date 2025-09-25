@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V19" />
+  <SW.Blocks.FC ID="0">
+    <AttributeList>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input" />
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+  <Section Name="Return">
+    <Member Name="Ret_Val" Datatype="Void" />
+  </Section>
+</Sections></Interface>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>Fit</Name>
+      <Namespace />
+      <Number>5</Number>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="Test_Keyswitch" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="Test_ResetPB" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="Clock_1Hz" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="Fitness_DB" />
+        <Component Name="FintnessPreAlarmWarning" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="GlobalWord" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="Config" />
+        <Component Name="Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="Fitness_DB" />
+        <Component Name="FitnessAlarmActive" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="GlobalWord" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="Config" />
+        <Component Name="Alarm" />
+      </Symbol>
+    </Access>
+    <Call UId="30">
+      <CallInfo Name="Fitness" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="31">
+          <Component Name="Fitness_DB" />
+        </Instance>
+        <Parameter Name="Keyswitch_Start" Section="Input" Type="Bool" />
+        <Parameter Name="ResetPBs" Section="Input" Type="Bool" />
+        <Parameter Name="SecPulse" Section="Input" Type="Bool" />
+        <Parameter Name="FintnessPreAlarmWarning" Section="Output" Type="Bool" />
+        <Parameter Name="FitnessAlarmActive" Section="Output" Type="Bool" />
+      </CallInfo>
+    </Call>
+    <Call UId="32">
+      <CallInfo Name="ALM" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="33">
+          <Component Name="Fitness_DB_PreAlarm" />
+        </Instance>
+        <Parameter Name="InputSignal" Section="Input" Type="Bool" />
+        <Parameter Name="Qualifier" Section="Input" Type="Bool" />
+        <Parameter Name="Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="Loudhailer" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="UnAck" Section="Output" Type="Bool" />
+        <Parameter Name="Severity" Section="Output" Type="Byte" />
+        <Parameter Name="GlobalWord" Section="InOut" Type="&quot;GlobalWord&quot;" />
+        <Parameter Name="Config" Section="InOut" Type="&quot;ConfigAlarm&quot;" />
+      </CallInfo>
+    </Call>
+    <Call UId="34">
+      <CallInfo Name="ALM" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="35">
+          <Component Name="Fitness_DB_Alarm" />
+        </Instance>
+        <Parameter Name="InputSignal" Section="Input" Type="Bool" />
+        <Parameter Name="Qualifier" Section="Input" Type="Bool" />
+        <Parameter Name="Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="Loudhailer" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="UnAck" Section="Output" Type="Bool" />
+        <Parameter Name="Severity" Section="Output" Type="Byte" />
+        <Parameter Name="GlobalWord" Section="InOut" Type="&quot;GlobalWord&quot;" />
+        <Parameter Name="Config" Section="InOut" Type="&quot;ConfigAlarm&quot;" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="56">
+      <Powerrail />
+      <NameCon UId="30" Name="en" />
+    </Wire>
+    <Wire UId="57">
+      <IdentCon UId="21" />
+      <NameCon UId="30" Name="Keyswitch_Start" />
+    </Wire>
+    <Wire UId="58">
+      <IdentCon UId="22" />
+      <NameCon UId="30" Name="ResetPBs" />
+    </Wire>
+    <Wire UId="59">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="SecPulse" />
+    </Wire>
+    <Wire UId="60">
+      <NameCon UId="30" Name="eno" />
+      <NameCon UId="32" Name="en" />
+      <NameCon UId="34" Name="en" />
+    </Wire>
+    <Wire UId="61">
+      <NameCon UId="30" Name="FintnessPreAlarmWarning" />
+      <OpenCon UId="36" />
+    </Wire>
+    <Wire UId="62">
+      <NameCon UId="30" Name="FitnessAlarmActive" />
+      <OpenCon UId="37" />
+    </Wire>
+    <Wire UId="63">
+      <IdentCon UId="24" />
+      <NameCon UId="32" Name="InputSignal" />
+    </Wire>
+    <Wire UId="64">
+      <OpenCon UId="38" />
+      <NameCon UId="32" Name="Qualifier" />
+    </Wire>
+    <Wire UId="65">
+      <IdentCon UId="25" />
+      <NameCon UId="32" Name="GlobalWord" />
+    </Wire>
+    <Wire UId="66">
+      <IdentCon UId="26" />
+      <NameCon UId="32" Name="Config" />
+    </Wire>
+    <Wire UId="67">
+      <NameCon UId="32" Name="Alarm" />
+      <OpenCon UId="39" />
+    </Wire>
+    <Wire UId="68">
+      <NameCon UId="32" Name="AlarmHorn" />
+      <OpenCon UId="40" />
+    </Wire>
+    <Wire UId="69">
+      <NameCon UId="32" Name="AlarmHorn_MCR" />
+      <OpenCon UId="41" />
+    </Wire>
+    <Wire UId="70">
+      <NameCon UId="32" Name="Loudhailer" />
+      <OpenCon UId="42" />
+    </Wire>
+    <Wire UId="71">
+      <NameCon UId="32" Name="Silenced" />
+      <OpenCon UId="43" />
+    </Wire>
+    <Wire UId="72">
+      <NameCon UId="32" Name="Silenced_MCR" />
+      <OpenCon UId="44" />
+    </Wire>
+    <Wire UId="73">
+      <NameCon UId="32" Name="UnAck" />
+      <OpenCon UId="45" />
+    </Wire>
+    <Wire UId="74">
+      <NameCon UId="32" Name="Severity" />
+      <OpenCon UId="46" />
+    </Wire>
+    <Wire UId="75">
+      <IdentCon UId="27" />
+      <NameCon UId="34" Name="InputSignal" />
+    </Wire>
+    <Wire UId="76">
+      <OpenCon UId="47" />
+      <NameCon UId="34" Name="Qualifier" />
+    </Wire>
+    <Wire UId="77">
+      <IdentCon UId="28" />
+      <NameCon UId="34" Name="GlobalWord" />
+    </Wire>
+    <Wire UId="78">
+      <IdentCon UId="29" />
+      <NameCon UId="34" Name="Config" />
+    </Wire>
+    <Wire UId="79">
+      <NameCon UId="34" Name="Alarm" />
+      <OpenCon UId="48" />
+    </Wire>
+    <Wire UId="80">
+      <NameCon UId="34" Name="AlarmHorn" />
+      <OpenCon UId="49" />
+    </Wire>
+    <Wire UId="81">
+      <NameCon UId="34" Name="AlarmHorn_MCR" />
+      <OpenCon UId="50" />
+    </Wire>
+    <Wire UId="82">
+      <NameCon UId="34" Name="Loudhailer" />
+      <OpenCon UId="51" />
+    </Wire>
+    <Wire UId="83">
+      <NameCon UId="34" Name="Silenced" />
+      <OpenCon UId="52" />
+    </Wire>
+    <Wire UId="84">
+      <NameCon UId="34" Name="Silenced_MCR" />
+      <OpenCon UId="53" />
+    </Wire>
+    <Wire UId="85">
+      <NameCon UId="34" Name="UnAck" />
+      <OpenCon UId="54" />
+    </Wire>
+    <Wire UId="86">
+      <NameCon UId="34" Name="Severity" />
+      <OpenCon UId="55" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Fitness System</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="8" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="9" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FC>
+</Document>

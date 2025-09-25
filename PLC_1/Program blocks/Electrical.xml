@@ -1,0 +1,885 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V19" />
+  <SW.Blocks.FC ID="0">
+    <AttributeList>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input" />
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+  <Section Name="Return">
+    <Member Name="Ret_Val" Datatype="Void" />
+  </Section>
+</Sections></Interface>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>Electrical</Name>
+      <Namespace />
+      <Number>1</Number>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="10" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="GlobalWord" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="Config" />
+        <Component Name="Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+        <Component Name="Active" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>0</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+        <Component Name="UnAck" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>0</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+        <Component Name="Severity" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>0</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Call UId="27">
+      <CallInfo Name="ALM" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="28">
+          <Component Name="0094 - CCAMS Drop 04 Supply Failure" />
+        </Instance>
+        <Parameter Name="InputSignal" Section="Input" Type="Bool" />
+        <Parameter Name="Qualifier" Section="Input" Type="Bool" />
+        <Parameter Name="Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="Loudhailer" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="UnAck" Section="Output" Type="Bool" />
+        <Parameter Name="Severity" Section="Output" Type="Byte" />
+        <Parameter Name="GlobalWord" Section="InOut" Type="&quot;GlobalWord&quot;" />
+        <Parameter Name="Config" Section="InOut" Type="&quot;ConfigAlarm&quot;" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="35">
+      <Powerrail />
+      <NameCon UId="27" Name="en" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="21" />
+      <NameCon UId="27" Name="InputSignal" />
+    </Wire>
+    <Wire UId="37">
+      <OpenCon UId="29" />
+      <NameCon UId="27" Name="Qualifier" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="22" />
+      <NameCon UId="27" Name="GlobalWord" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="Config" />
+    </Wire>
+    <Wire UId="40">
+      <NameCon UId="27" Name="Alarm" />
+      <IdentCon UId="24" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="27" Name="AlarmHorn" />
+      <OpenCon UId="30" />
+    </Wire>
+    <Wire UId="42">
+      <NameCon UId="27" Name="AlarmHorn_MCR" />
+      <OpenCon UId="31" />
+    </Wire>
+    <Wire UId="43">
+      <NameCon UId="27" Name="Loudhailer" />
+      <OpenCon UId="32" />
+    </Wire>
+    <Wire UId="44">
+      <NameCon UId="27" Name="Silenced" />
+      <OpenCon UId="33" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="27" Name="Silenced_MCR" />
+      <OpenCon UId="34" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="27" Name="UnAck" />
+      <IdentCon UId="25" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="27" Name="Severity" />
+      <IdentCon UId="26" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Digital Alarm - Electrical Group</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="8" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="Test_CtrlPwr" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="Test_RunningFB" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="Test_LocalRemote" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="Test_AutoManual" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="Test_AutoStartConditions" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="Test_Interlocks" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="FVNR Starter_DB_FTStart" />
+        <Component Name="Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="FVNR Starter_DB_FTStop" />
+        <Component Name="Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="FVNR Starter_DB_CPF" />
+        <Component Name="Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="GlobalWord" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="Config" />
+        <Component Name="Parameters" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="FVNR Starter_DB" />
+        <Component Name="FailtoStart_Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="33">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="GlobalWord" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="34">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="Config" />
+        <Component Name="Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="35">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+        <Component Name="Active" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>1</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="36">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+        <Component Name="UnAck" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>1</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="37">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+        <Component Name="Severity" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>1</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="38">
+      <Symbol>
+        <Component Name="FVNR Starter_DB" />
+        <Component Name="FailtoStop_Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="39">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="GlobalWord" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="40">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="Config" />
+        <Component Name="Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="41">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+        <Component Name="Active" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>2</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="42">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+        <Component Name="UnAck" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>2</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="43">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+        <Component Name="Severity" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>2</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="44">
+      <Symbol>
+        <Component Name="FVNR Starter_DB" />
+        <Component Name="CtrlPwrFail_Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="45">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="GlobalWord" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="46">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="Config" />
+        <Component Name="Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="47">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+        <Component Name="Active" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>3</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="48">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+        <Component Name="UnAck" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>3</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="49">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+        <Component Name="Severity" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>3</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Call UId="50">
+      <CallInfo Name="FVNR Starter" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="51">
+          <Component Name="FVNR Starter_DB" />
+        </Instance>
+        <Parameter Name="ControlPower" Section="Input" Type="Bool" />
+        <Parameter Name="RunningFeedback" Section="Input" Type="Bool" />
+        <Parameter Name="LocalRemoteMode" Section="Input" Type="Bool" />
+        <Parameter Name="ManualAutoMode" Section="Input" Type="Bool" />
+        <Parameter Name="StartPB_LOCAL" Section="Input" Type="Bool" />
+        <Parameter Name="StopPB_LOCAL" Section="Input" Type="Bool" />
+        <Parameter Name="AutoStartConditions" Section="Input" Type="Bool" />
+        <Parameter Name="Interlocks" Section="Input" Type="Bool" />
+        <Parameter Name="FailtoStart_ALM" Section="Input" Type="Bool" />
+        <Parameter Name="FailtoStop_ALM" Section="Input" Type="Bool" />
+        <Parameter Name="CtrlPwrFail_ALM" Section="Input" Type="Bool" />
+        <Parameter Name="StartOutput" Section="Output" Type="Bool" />
+        <Parameter Name="StopOutput" Section="Output" Type="Bool" />
+        <Parameter Name="FailtoStart_Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="FailtoStop_Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="CtrlPwrFail_Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="SimulatedRunning" Section="Output" Type="Bool" />
+        <Parameter Name="GlobalWord" Section="InOut" Type="&quot;GlobalWord&quot;" />
+        <Parameter Name="Config" Section="InOut" Type="&quot;ConfigParameters&quot;" />
+      </CallInfo>
+    </Call>
+    <Call UId="52">
+      <CallInfo Name="ALM" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="53">
+          <Component Name="FVNR Starter_DB_FTStart" />
+        </Instance>
+        <Parameter Name="InputSignal" Section="Input" Type="Bool" />
+        <Parameter Name="Qualifier" Section="Input" Type="Bool" />
+        <Parameter Name="Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="Loudhailer" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="UnAck" Section="Output" Type="Bool" />
+        <Parameter Name="Severity" Section="Output" Type="Byte" />
+        <Parameter Name="GlobalWord" Section="InOut" Type="&quot;GlobalWord&quot;" />
+        <Parameter Name="Config" Section="InOut" Type="&quot;ConfigAlarm&quot;" />
+      </CallInfo>
+    </Call>
+    <Call UId="54">
+      <CallInfo Name="ALM" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="55">
+          <Component Name="FVNR Starter_DB_FTStop" />
+        </Instance>
+        <Parameter Name="InputSignal" Section="Input" Type="Bool" />
+        <Parameter Name="Qualifier" Section="Input" Type="Bool" />
+        <Parameter Name="Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="Loudhailer" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="UnAck" Section="Output" Type="Bool" />
+        <Parameter Name="Severity" Section="Output" Type="Byte" />
+        <Parameter Name="GlobalWord" Section="InOut" Type="&quot;GlobalWord&quot;" />
+        <Parameter Name="Config" Section="InOut" Type="&quot;ConfigAlarm&quot;" />
+      </CallInfo>
+    </Call>
+    <Call UId="56">
+      <CallInfo Name="ALM" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="57">
+          <Component Name="FVNR Starter_DB_CPF" />
+        </Instance>
+        <Parameter Name="InputSignal" Section="Input" Type="Bool" />
+        <Parameter Name="Qualifier" Section="Input" Type="Bool" />
+        <Parameter Name="Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="Loudhailer" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="UnAck" Section="Output" Type="Bool" />
+        <Parameter Name="Severity" Section="Output" Type="Byte" />
+        <Parameter Name="GlobalWord" Section="InOut" Type="&quot;GlobalWord&quot;" />
+        <Parameter Name="Config" Section="InOut" Type="&quot;ConfigAlarm&quot;" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="84">
+      <Powerrail />
+      <NameCon UId="50" Name="en" />
+    </Wire>
+    <Wire UId="85">
+      <IdentCon UId="21" />
+      <NameCon UId="50" Name="ControlPower" />
+    </Wire>
+    <Wire UId="86">
+      <IdentCon UId="22" />
+      <NameCon UId="50" Name="RunningFeedback" />
+    </Wire>
+    <Wire UId="87">
+      <IdentCon UId="23" />
+      <NameCon UId="50" Name="LocalRemoteMode" />
+    </Wire>
+    <Wire UId="88">
+      <IdentCon UId="24" />
+      <NameCon UId="50" Name="ManualAutoMode" />
+    </Wire>
+    <Wire UId="89">
+      <OpenCon UId="58" />
+      <NameCon UId="50" Name="StartPB_LOCAL" />
+    </Wire>
+    <Wire UId="90">
+      <OpenCon UId="59" />
+      <NameCon UId="50" Name="StopPB_LOCAL" />
+    </Wire>
+    <Wire UId="91">
+      <IdentCon UId="25" />
+      <NameCon UId="50" Name="AutoStartConditions" />
+    </Wire>
+    <Wire UId="92">
+      <IdentCon UId="26" />
+      <NameCon UId="50" Name="Interlocks" />
+    </Wire>
+    <Wire UId="93">
+      <IdentCon UId="27" />
+      <NameCon UId="50" Name="FailtoStart_ALM" />
+    </Wire>
+    <Wire UId="94">
+      <IdentCon UId="28" />
+      <NameCon UId="50" Name="FailtoStop_ALM" />
+    </Wire>
+    <Wire UId="95">
+      <IdentCon UId="29" />
+      <NameCon UId="50" Name="CtrlPwrFail_ALM" />
+    </Wire>
+    <Wire UId="96">
+      <IdentCon UId="30" />
+      <NameCon UId="50" Name="GlobalWord" />
+    </Wire>
+    <Wire UId="97">
+      <IdentCon UId="31" />
+      <NameCon UId="50" Name="Config" />
+    </Wire>
+    <Wire UId="98">
+      <NameCon UId="50" Name="eno" />
+      <NameCon UId="52" Name="en" />
+      <NameCon UId="54" Name="en" />
+      <NameCon UId="56" Name="en" />
+    </Wire>
+    <Wire UId="99">
+      <NameCon UId="50" Name="StartOutput" />
+      <OpenCon UId="60" />
+    </Wire>
+    <Wire UId="100">
+      <NameCon UId="50" Name="StopOutput" />
+      <OpenCon UId="61" />
+    </Wire>
+    <Wire UId="101">
+      <NameCon UId="50" Name="FailtoStart_Alarm" />
+      <OpenCon UId="62" />
+    </Wire>
+    <Wire UId="102">
+      <NameCon UId="50" Name="FailtoStop_Alarm" />
+      <OpenCon UId="63" />
+    </Wire>
+    <Wire UId="103">
+      <NameCon UId="50" Name="CtrlPwrFail_Alarm" />
+      <OpenCon UId="64" />
+    </Wire>
+    <Wire UId="104">
+      <NameCon UId="50" Name="SimulatedRunning" />
+      <OpenCon UId="65" />
+    </Wire>
+    <Wire UId="105">
+      <IdentCon UId="32" />
+      <NameCon UId="52" Name="InputSignal" />
+    </Wire>
+    <Wire UId="106">
+      <OpenCon UId="66" />
+      <NameCon UId="52" Name="Qualifier" />
+    </Wire>
+    <Wire UId="107">
+      <IdentCon UId="33" />
+      <NameCon UId="52" Name="GlobalWord" />
+    </Wire>
+    <Wire UId="108">
+      <IdentCon UId="34" />
+      <NameCon UId="52" Name="Config" />
+    </Wire>
+    <Wire UId="109">
+      <NameCon UId="52" Name="Alarm" />
+      <IdentCon UId="35" />
+    </Wire>
+    <Wire UId="110">
+      <NameCon UId="52" Name="AlarmHorn" />
+      <OpenCon UId="67" />
+    </Wire>
+    <Wire UId="111">
+      <NameCon UId="52" Name="AlarmHorn_MCR" />
+      <OpenCon UId="68" />
+    </Wire>
+    <Wire UId="112">
+      <NameCon UId="52" Name="Loudhailer" />
+      <OpenCon UId="69" />
+    </Wire>
+    <Wire UId="113">
+      <NameCon UId="52" Name="Silenced" />
+      <OpenCon UId="70" />
+    </Wire>
+    <Wire UId="114">
+      <NameCon UId="52" Name="Silenced_MCR" />
+      <OpenCon UId="71" />
+    </Wire>
+    <Wire UId="115">
+      <NameCon UId="52" Name="UnAck" />
+      <IdentCon UId="36" />
+    </Wire>
+    <Wire UId="116">
+      <NameCon UId="52" Name="Severity" />
+      <IdentCon UId="37" />
+    </Wire>
+    <Wire UId="117">
+      <IdentCon UId="38" />
+      <NameCon UId="54" Name="InputSignal" />
+    </Wire>
+    <Wire UId="118">
+      <OpenCon UId="72" />
+      <NameCon UId="54" Name="Qualifier" />
+    </Wire>
+    <Wire UId="119">
+      <IdentCon UId="39" />
+      <NameCon UId="54" Name="GlobalWord" />
+    </Wire>
+    <Wire UId="120">
+      <IdentCon UId="40" />
+      <NameCon UId="54" Name="Config" />
+    </Wire>
+    <Wire UId="121">
+      <NameCon UId="54" Name="Alarm" />
+      <IdentCon UId="41" />
+    </Wire>
+    <Wire UId="122">
+      <NameCon UId="54" Name="AlarmHorn" />
+      <OpenCon UId="73" />
+    </Wire>
+    <Wire UId="123">
+      <NameCon UId="54" Name="AlarmHorn_MCR" />
+      <OpenCon UId="74" />
+    </Wire>
+    <Wire UId="124">
+      <NameCon UId="54" Name="Loudhailer" />
+      <OpenCon UId="75" />
+    </Wire>
+    <Wire UId="125">
+      <NameCon UId="54" Name="Silenced" />
+      <OpenCon UId="76" />
+    </Wire>
+    <Wire UId="126">
+      <NameCon UId="54" Name="Silenced_MCR" />
+      <OpenCon UId="77" />
+    </Wire>
+    <Wire UId="127">
+      <NameCon UId="54" Name="UnAck" />
+      <IdentCon UId="42" />
+    </Wire>
+    <Wire UId="128">
+      <NameCon UId="54" Name="Severity" />
+      <IdentCon UId="43" />
+    </Wire>
+    <Wire UId="129">
+      <IdentCon UId="44" />
+      <NameCon UId="56" Name="InputSignal" />
+    </Wire>
+    <Wire UId="130">
+      <OpenCon UId="78" />
+      <NameCon UId="56" Name="Qualifier" />
+    </Wire>
+    <Wire UId="131">
+      <IdentCon UId="45" />
+      <NameCon UId="56" Name="GlobalWord" />
+    </Wire>
+    <Wire UId="132">
+      <IdentCon UId="46" />
+      <NameCon UId="56" Name="Config" />
+    </Wire>
+    <Wire UId="133">
+      <NameCon UId="56" Name="Alarm" />
+      <IdentCon UId="47" />
+    </Wire>
+    <Wire UId="134">
+      <NameCon UId="56" Name="AlarmHorn" />
+      <OpenCon UId="79" />
+    </Wire>
+    <Wire UId="135">
+      <NameCon UId="56" Name="AlarmHorn_MCR" />
+      <OpenCon UId="80" />
+    </Wire>
+    <Wire UId="136">
+      <NameCon UId="56" Name="Loudhailer" />
+      <OpenCon UId="81" />
+    </Wire>
+    <Wire UId="137">
+      <NameCon UId="56" Name="Silenced" />
+      <OpenCon UId="82" />
+    </Wire>
+    <Wire UId="138">
+      <NameCon UId="56" Name="Silenced_MCR" />
+      <OpenCon UId="83" />
+    </Wire>
+    <Wire UId="139">
+      <NameCon UId="56" Name="UnAck" />
+      <IdentCon UId="48" />
+    </Wire>
+    <Wire UId="140">
+      <NameCon UId="56" Name="Severity" />
+      <IdentCon UId="49" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="9" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FVNR Starter - Electrical Group</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="D" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="ElectricalAlarms" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="ElectAlarmCount" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="ElectGroupSeverity" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="ElectUnAckAlarm" />
+      </Symbol>
+    </Access>
+    <Call UId="25">
+      <CallInfo Name="Alarm Counting" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="26">
+          <Component Name="Alarm Counting_DB" />
+        </Instance>
+        <Parameter Name="GroupArray" Section="Input" Type="Struct" />
+        <Parameter Name="CountOutput" Section="Output" Type="Int" />
+        <Parameter Name="HighestSeverity" Section="Output" Type="Byte" />
+        <Parameter Name="UnAckAlarm" Section="Output" Type="Bool" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="27">
+      <Powerrail />
+      <NameCon UId="25" Name="en" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="GroupArray" />
+    </Wire>
+    <Wire UId="29">
+      <NameCon UId="25" Name="CountOutput" />
+      <IdentCon UId="22" />
+    </Wire>
+    <Wire UId="30">
+      <NameCon UId="25" Name="HighestSeverity" />
+      <IdentCon UId="23" />
+    </Wire>
+    <Wire UId="31">
+      <NameCon UId="25" Name="UnAckAlarm" />
+      <IdentCon UId="24" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="10" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Alarm Counting Electrical</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="12" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="13" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>Electrical Group</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FC>
+</Document>

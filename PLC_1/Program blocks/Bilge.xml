@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V19" />
+  <SW.Blocks.FC ID="0">
+    <AttributeList>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input" />
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+  <Section Name="Return">
+    <Member Name="Ret_Val" Datatype="Void" />
+  </Section>
+</Sections></Interface>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>Bilge</Name>
+      <Namespace />
+      <Number>4</Number>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="Test_OpenLimit" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="Test_CloseLimit" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="Test_Interlocks" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="GlobalWord" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="Config" />
+        <Component Name="Parameters" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="Valve Control_DB" />
+        <Component Name="PosFlt_Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="GlobalWord" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="Config" />
+        <Component Name="Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="Valve Control_DB" />
+        <Component Name="FailClose_Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="GlobalWord" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="Config" />
+        <Component Name="Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="Valve Control_DB" />
+        <Component Name="FailOpen_Alarm" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="33">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="GlobalWord" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="34">
+      <Symbol>
+        <Component Name="System" />
+        <Component Name="Config" />
+        <Component Name="Alarm" />
+      </Symbol>
+    </Access>
+    <Call UId="35">
+      <CallInfo Name="Valve Control" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="36">
+          <Component Name="Valve Control_DB" />
+        </Instance>
+        <Parameter Name="Opened_LimitSwitch" Section="Input" Type="Bool" />
+        <Parameter Name="Closed_LimitSwitch" Section="Input" Type="Bool" />
+        <Parameter Name="Interlocks" Section="Input" Type="Bool" />
+        <Parameter Name="ValveCommand" Section="Output" Type="Bool" />
+        <Parameter Name="PosFlt_Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="FailClose_Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="FailOpen_Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="Simulated_OpenLimit" Section="Output" Type="Bool" />
+        <Parameter Name="Simulated_ClosedLimit" Section="Output" Type="Bool" />
+        <Parameter Name="SimulatedOpenCommand" Section="Output" Type="Bool" />
+        <Parameter Name="GlobalWord" Section="InOut" Type="&quot;GlobalWord&quot;" />
+        <Parameter Name="Config" Section="InOut" Type="&quot;ConfigParameters&quot;" />
+      </CallInfo>
+    </Call>
+    <Call UId="37">
+      <CallInfo Name="ALM" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="38">
+          <Component Name="Valve Control_DB_PosFlt" />
+        </Instance>
+        <Parameter Name="InputSignal" Section="Input" Type="Bool" />
+        <Parameter Name="Qualifier" Section="Input" Type="Bool" />
+        <Parameter Name="Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="Loudhailer" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="UnAck" Section="Output" Type="Bool" />
+        <Parameter Name="Severity" Section="Output" Type="Byte" />
+        <Parameter Name="GlobalWord" Section="InOut" Type="&quot;GlobalWord&quot;" />
+        <Parameter Name="Config" Section="InOut" Type="&quot;ConfigAlarm&quot;" />
+      </CallInfo>
+    </Call>
+    <Call UId="39">
+      <CallInfo Name="ALM" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="40">
+          <Component Name="Valve Control_DB_FTC" />
+        </Instance>
+        <Parameter Name="InputSignal" Section="Input" Type="Bool" />
+        <Parameter Name="Qualifier" Section="Input" Type="Bool" />
+        <Parameter Name="Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="Loudhailer" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="UnAck" Section="Output" Type="Bool" />
+        <Parameter Name="Severity" Section="Output" Type="Byte" />
+        <Parameter Name="GlobalWord" Section="InOut" Type="&quot;GlobalWord&quot;" />
+        <Parameter Name="Config" Section="InOut" Type="&quot;ConfigAlarm&quot;" />
+      </CallInfo>
+    </Call>
+    <Call UId="41">
+      <CallInfo Name="ALM" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="42">
+          <Component Name="Valve Control_DB_FTO" />
+        </Instance>
+        <Parameter Name="InputSignal" Section="Input" Type="Bool" />
+        <Parameter Name="Qualifier" Section="Input" Type="Bool" />
+        <Parameter Name="Alarm" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn" Section="Output" Type="Bool" />
+        <Parameter Name="AlarmHorn_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="Loudhailer" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced" Section="Output" Type="Bool" />
+        <Parameter Name="Silenced_MCR" Section="Output" Type="Bool" />
+        <Parameter Name="UnAck" Section="Output" Type="Bool" />
+        <Parameter Name="Severity" Section="Output" Type="Byte" />
+        <Parameter Name="GlobalWord" Section="InOut" Type="&quot;GlobalWord&quot;" />
+        <Parameter Name="Config" Section="InOut" Type="&quot;ConfigAlarm&quot;" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="77">
+      <Powerrail />
+      <NameCon UId="35" Name="en" />
+    </Wire>
+    <Wire UId="78">
+      <IdentCon UId="21" />
+      <NameCon UId="35" Name="Opened_LimitSwitch" />
+    </Wire>
+    <Wire UId="79">
+      <IdentCon UId="22" />
+      <NameCon UId="35" Name="Closed_LimitSwitch" />
+    </Wire>
+    <Wire UId="80">
+      <IdentCon UId="23" />
+      <NameCon UId="35" Name="Interlocks" />
+    </Wire>
+    <Wire UId="81">
+      <IdentCon UId="24" />
+      <NameCon UId="35" Name="GlobalWord" />
+    </Wire>
+    <Wire UId="82">
+      <IdentCon UId="25" />
+      <NameCon UId="35" Name="Config" />
+    </Wire>
+    <Wire UId="83">
+      <NameCon UId="35" Name="eno" />
+      <NameCon UId="37" Name="en" />
+      <NameCon UId="39" Name="en" />
+      <NameCon UId="41" Name="en" />
+    </Wire>
+    <Wire UId="84">
+      <NameCon UId="35" Name="ValveCommand" />
+      <OpenCon UId="43" />
+    </Wire>
+    <Wire UId="85">
+      <NameCon UId="35" Name="PosFlt_Alarm" />
+      <OpenCon UId="44" />
+    </Wire>
+    <Wire UId="86">
+      <NameCon UId="35" Name="FailClose_Alarm" />
+      <OpenCon UId="45" />
+    </Wire>
+    <Wire UId="87">
+      <NameCon UId="35" Name="FailOpen_Alarm" />
+      <OpenCon UId="46" />
+    </Wire>
+    <Wire UId="88">
+      <NameCon UId="35" Name="Simulated_OpenLimit" />
+      <OpenCon UId="47" />
+    </Wire>
+    <Wire UId="89">
+      <NameCon UId="35" Name="Simulated_ClosedLimit" />
+      <OpenCon UId="48" />
+    </Wire>
+    <Wire UId="90">
+      <NameCon UId="35" Name="SimulatedOpenCommand" />
+      <OpenCon UId="49" />
+    </Wire>
+    <Wire UId="91">
+      <IdentCon UId="26" />
+      <NameCon UId="37" Name="InputSignal" />
+    </Wire>
+    <Wire UId="92">
+      <OpenCon UId="50" />
+      <NameCon UId="37" Name="Qualifier" />
+    </Wire>
+    <Wire UId="93">
+      <IdentCon UId="27" />
+      <NameCon UId="37" Name="GlobalWord" />
+    </Wire>
+    <Wire UId="94">
+      <IdentCon UId="28" />
+      <NameCon UId="37" Name="Config" />
+    </Wire>
+    <Wire UId="95">
+      <NameCon UId="37" Name="Alarm" />
+      <OpenCon UId="51" />
+    </Wire>
+    <Wire UId="96">
+      <NameCon UId="37" Name="AlarmHorn" />
+      <OpenCon UId="52" />
+    </Wire>
+    <Wire UId="97">
+      <NameCon UId="37" Name="AlarmHorn_MCR" />
+      <OpenCon UId="53" />
+    </Wire>
+    <Wire UId="98">
+      <NameCon UId="37" Name="Loudhailer" />
+      <OpenCon UId="54" />
+    </Wire>
+    <Wire UId="99">
+      <NameCon UId="37" Name="Silenced" />
+      <OpenCon UId="55" />
+    </Wire>
+    <Wire UId="100">
+      <NameCon UId="37" Name="Silenced_MCR" />
+      <OpenCon UId="56" />
+    </Wire>
+    <Wire UId="101">
+      <NameCon UId="37" Name="UnAck" />
+      <OpenCon UId="57" />
+    </Wire>
+    <Wire UId="102">
+      <NameCon UId="37" Name="Severity" />
+      <OpenCon UId="58" />
+    </Wire>
+    <Wire UId="103">
+      <IdentCon UId="29" />
+      <NameCon UId="39" Name="InputSignal" />
+    </Wire>
+    <Wire UId="104">
+      <OpenCon UId="59" />
+      <NameCon UId="39" Name="Qualifier" />
+    </Wire>
+    <Wire UId="105">
+      <IdentCon UId="30" />
+      <NameCon UId="39" Name="GlobalWord" />
+    </Wire>
+    <Wire UId="106">
+      <IdentCon UId="31" />
+      <NameCon UId="39" Name="Config" />
+    </Wire>
+    <Wire UId="107">
+      <NameCon UId="39" Name="Alarm" />
+      <OpenCon UId="60" />
+    </Wire>
+    <Wire UId="108">
+      <NameCon UId="39" Name="AlarmHorn" />
+      <OpenCon UId="61" />
+    </Wire>
+    <Wire UId="109">
+      <NameCon UId="39" Name="AlarmHorn_MCR" />
+      <OpenCon UId="62" />
+    </Wire>
+    <Wire UId="110">
+      <NameCon UId="39" Name="Loudhailer" />
+      <OpenCon UId="63" />
+    </Wire>
+    <Wire UId="111">
+      <NameCon UId="39" Name="Silenced" />
+      <OpenCon UId="64" />
+    </Wire>
+    <Wire UId="112">
+      <NameCon UId="39" Name="Silenced_MCR" />
+      <OpenCon UId="65" />
+    </Wire>
+    <Wire UId="113">
+      <NameCon UId="39" Name="UnAck" />
+      <OpenCon UId="66" />
+    </Wire>
+    <Wire UId="114">
+      <NameCon UId="39" Name="Severity" />
+      <OpenCon UId="67" />
+    </Wire>
+    <Wire UId="115">
+      <IdentCon UId="32" />
+      <NameCon UId="41" Name="InputSignal" />
+    </Wire>
+    <Wire UId="116">
+      <OpenCon UId="68" />
+      <NameCon UId="41" Name="Qualifier" />
+    </Wire>
+    <Wire UId="117">
+      <IdentCon UId="33" />
+      <NameCon UId="41" Name="GlobalWord" />
+    </Wire>
+    <Wire UId="118">
+      <IdentCon UId="34" />
+      <NameCon UId="41" Name="Config" />
+    </Wire>
+    <Wire UId="119">
+      <NameCon UId="41" Name="Alarm" />
+      <OpenCon UId="69" />
+    </Wire>
+    <Wire UId="120">
+      <NameCon UId="41" Name="AlarmHorn" />
+      <OpenCon UId="70" />
+    </Wire>
+    <Wire UId="121">
+      <NameCon UId="41" Name="AlarmHorn_MCR" />
+      <OpenCon UId="71" />
+    </Wire>
+    <Wire UId="122">
+      <NameCon UId="41" Name="Loudhailer" />
+      <OpenCon UId="72" />
+    </Wire>
+    <Wire UId="123">
+      <NameCon UId="41" Name="Silenced" />
+      <OpenCon UId="73" />
+    </Wire>
+    <Wire UId="124">
+      <NameCon UId="41" Name="Silenced_MCR" />
+      <OpenCon UId="74" />
+    </Wire>
+    <Wire UId="125">
+      <NameCon UId="41" Name="UnAck" />
+      <OpenCon UId="75" />
+    </Wire>
+    <Wire UId="126">
+      <NameCon UId="41" Name="Severity" />
+      <OpenCon UId="76" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Valve Control - Bilge</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="8" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="9" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FC>
+</Document>
