@@ -32,6 +32,67 @@
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
+        <Component Name="10" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="10" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="23" />
+    <Part Name="Coil" UId="24" />
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <Powerrail />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Dylan Test</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="8" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
         <Component Name="System" />
         <Component Name="GlobalWord" />
         <Component Name="Horn" />
@@ -248,46 +309,6 @@
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="4" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="5" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="6" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="7" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text>Reset Global Word Bits</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="8" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
-  <Parts>
-    <Call UId="21">
-      <CallInfo Name="Electrical" BlockType="FC" />
-    </Call>
-  </Parts>
-  <Wires>
-    <Wire UId="22">
-      <Powerrail />
-      <NameCon UId="21" Name="en" />
-    </Wire>
-  </Wires>
-</FlgNet></NetworkSource>
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
-        <ObjectList>
           <MultilingualText ID="9" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="A" CompositionName="Items">
@@ -303,7 +324,7 @@
               <MultilingualTextItem ID="C" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
-                  <Text>Electrical Group</Text>
+                  <Text>Reset Global Word Bits</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -315,7 +336,7 @@
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
   <Parts>
     <Call UId="21">
-      <CallInfo Name="Tanks_OG" BlockType="FC" />
+      <CallInfo Name="Electrical" BlockType="FC" />
     </Call>
   </Parts>
   <Wires>
@@ -343,7 +364,7 @@
               <MultilingualTextItem ID="11" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
-                  <Text>Tanks Group</Text>
+                  <Text>Electrical Group</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -355,7 +376,7 @@
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
   <Parts>
     <Call UId="21">
-      <CallInfo Name="Aux_Dom" BlockType="FC" />
+      <CallInfo Name="Tanks_OG" BlockType="FC" />
     </Call>
   </Parts>
   <Wires>
@@ -383,7 +404,7 @@
               <MultilingualTextItem ID="16" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
-                  <Text>Aux/Domestic Group</Text>
+                  <Text>Tanks Group</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -395,7 +416,7 @@
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
   <Parts>
     <Call UId="21">
-      <CallInfo Name="Bilge" BlockType="FC" />
+      <CallInfo Name="Aux_Dom" BlockType="FC" />
     </Call>
   </Parts>
   <Wires>
@@ -423,7 +444,7 @@
               <MultilingualTextItem ID="1B" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
-                  <Text>Bilge Group</Text>
+                  <Text>Aux/Domestic Group</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -435,7 +456,7 @@
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
   <Parts>
     <Call UId="21">
-      <CallInfo Name="Fit" BlockType="FC" />
+      <CallInfo Name="Bilge" BlockType="FC" />
     </Call>
   </Parts>
   <Wires>
@@ -463,7 +484,7 @@
               <MultilingualTextItem ID="20" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
-                  <Text>Fitness Group</Text>
+                  <Text>Bilge Group</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -471,6 +492,46 @@
         </ObjectList>
       </SW.Blocks.CompileUnit>
       <SW.Blocks.CompileUnit ID="21" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
+  <Parts>
+    <Call UId="21">
+      <CallInfo Name="Fit" BlockType="FC" />
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="22">
+      <Powerrail />
+      <NameCon UId="21" Name="en" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="22" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="23" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="24" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="25" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Fitness Group</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="26" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v5">
   <Parts>
@@ -646,9 +707,9 @@
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="22" CompositionName="Comment">
+          <MultilingualText ID="27" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="23" CompositionName="Items">
+              <MultilingualTextItem ID="28" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
@@ -656,9 +717,9 @@
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="24" CompositionName="Title">
+          <MultilingualText ID="29" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="25" CompositionName="Items">
+              <MultilingualTextItem ID="2A" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text>Output</Text>
@@ -668,9 +729,9 @@
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <MultilingualText ID="26" CompositionName="Title">
+      <MultilingualText ID="2B" CompositionName="Title">
         <ObjectList>
-          <MultilingualTextItem ID="27" CompositionName="Items">
+          <MultilingualTextItem ID="2C" CompositionName="Items">
             <AttributeList>
               <Culture>en-US</Culture>
               <Text>"Main Program Sweep (Cycle)"</Text>
